@@ -12,21 +12,27 @@
 <body>
     <div class="weather-app">
     <header>
-        <form>
-            <input type="text" placeholder="Enter city...">
-            <input type="submit" value="Search">
+        <form class="weather-form">
+            <input type="text" placeholder="Enter city..." class="search-input">
+            <input type="submit" value="Search" class="search-btn">
         </form>
     </header>
     <main>
+        <div class="weather-main">
         <div>
-    <h1>Soweto</h1>
-    <p>
-        Wednesday 18:25, moderate rain
+    <h1 class="weather-city">Soweto</h1>
+    <p class="weather-details">
+        Wednesday 18:25, <span>moderate rain</span> 
         <br>
-Humidity: 87%, Wind: 7.2km/h
+<span>Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong></span>
     </p>
 </div>
-    <div>☁️ 12°C</div>
+<div class="weather-temperature">
+    <div class="weather-icon">☁️</div>
+    <div class="temp-value">12</div>
+    <div class="temp-degrees">°C</div>
+</div>
+</div>
 </main>
 
     <footer>This project was coded by <a href="https://github.com/LesleyM27" target="_blank">Lesley Mabaso</a>, is open-sourced on <a href="https://github.com/LesleyM27?tab=repositories" target="_blank">Github</a>, and hosted on <a href="https://project-weather-app-les.netlify.app/" target="_blank">Netlify</a></footer>
