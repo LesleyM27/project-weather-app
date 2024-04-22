@@ -87,10 +87,10 @@ main {
 }
 
 .weather-details strong {
-    color: rgb(128, 0, 28);
+    color: rgb(255, 39, 86);
 }
 
-#current-date {
+#time {
     color: black;
 }
 

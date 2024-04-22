@@ -3,9 +3,46 @@ function updateWeather(response) {
    let temperature = response.data.temperature.current;
 
    let cityElement = document.querySelector("#city");
-   
+   let descriptionElement = document.querySelector("#description");
+   let humidityElement = document.querySelector("#humidity");
+   let windElement = document.querySelector("#wind");
+   let timeElement = document.querySelector("#time");
+   let date = new Date(response.data.time * 1000);
+
    cityElement.innerHTML = response.data.city;
+   descriptionElement.innerHTML = response.data.condition.description;
+   humidityElement.innerHTML = `${response.data.temperature.humidity}%`;
+   windElement.innerHTML = `${response.data.wind.speed}km/h`;
+   timeElement.innerHTML = formatDate(date);
    temperatureElement.innerHTML = Math.round(temperature);
+}
+
+function formatDate(date) {
+    
+    let minutes = date.getMinutes();
+    let hours = date.getHours();
+
+    let days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      let day = days[date.getDay()];
+
+      if (hours < 10) {
+        hours = `0${hours}`;
+      }
+      
+      if (minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+
+      return `${day} ${hours}:${minutes}`
 }
 
 
@@ -28,29 +65,3 @@ let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Johannesburg");
-
-let currentDate = document.querySelector("#current-date");
-let now = new Date();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-let day = now.getDay();
-
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let formattedDate = days[day];
-currentDate.innerHTML = `${formattedDate} ${hours}:${minutes}`;
