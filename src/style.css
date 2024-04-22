@@ -87,7 +87,11 @@ main {
 }
 
 .weather-details strong {
-    color: #f65282;
+    color: rgb(128, 0, 28);
+}
+
+#current-date {
+    color: black;
 }
 
 footer {
